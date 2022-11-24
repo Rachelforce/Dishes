@@ -3,7 +3,7 @@
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 <head>
     <meta charset="utf-8">
-    <title>BlackVR Radisson AR</title>
+    <title>Furniture AR</title>
 </head>
 
 <model-viewer src="assets/models/Chair.glb" poster="assets/models/Chair.webp"
@@ -70,7 +70,8 @@
 
     window.switchSrc = (element, name) => {
         const base = "assets/models/" + name;
-        modelViewer.src = base + '.glb';
+        modelViewer.setAttribute("src", base + '.glb')
+        modelViewer.setAttribute("ios-src", base + '.usdz')
         modelViewer.poster = base + '.webp';
         const slides = document.querySelectorAll(".slide");
         slides.forEach((element) => {
@@ -119,7 +120,7 @@
         left: 50%;
         transform: translateX(-50%);
         white-space: nowrap;
-        bottom: 132px;
+        top: 132px;
         padding: 0px 16px 0px 40px;
         font-family: Roboto Regular, Helvetica Neue, sans-serif;
         font-size: 14px;
