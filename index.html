@@ -6,8 +6,8 @@
     <title>Furniture AR</title>
 </head>
 
-<model-viewer src="assets/models/Chair.glb" poster="assets/models/Chair.webp"
-              shadow-intensity="1" ar camera-controls touch-action="pan-y" alt="A 3D model carousel" touch-action="none">
+<model-viewer src="assets/models/Cupcake.glb"
+              shadow-intensity="1" min-field-of-view="80deg" max-field-of-view="100deg" ar camera-controls touch-action="pan-y" alt="A 3D model carousel" touch-action="none">
 
     <button slot="ar-button" id="ar-button">
         View in your space
@@ -23,44 +23,23 @@
 
     <div class="slider">
         <div class="slides">
-            <button class="slide selected" onclick="switchSrc(this, 'Chair')"
-                    style="background-image: url('assets/models/Chair.webp');">
+            <button class="slide selected" onclick="switchSrc(this, 'Cupcake')"
+                    style="background-image: url('assets/models/Cupcake.png');">
 
             </button>
-            <button class="slide" onclick="switchSrc(this, 'Mixer')"
-                    style="background-image: url('assets/models/Mixer.webp');">
+            <button class="slide" onclick="switchSrc(this, 'fast-food')"
+                    style="background-image: url('assets/models/fast-food.png');">
 
             </button>
-            <button class="slide" onclick="switchSrc(this, 'GeoPlanter')"
-                    style="background-image: url('assets/models/GeoPlanter.webp');">
+            <button class="slide" onclick="switchSrc(this, 'food')"
+                    style="background-image: url('assets/models/food.png');">
 
             </button>
-            <button class="slide" onclick="switchSrc(this, 'ToyTrain')"
-                    style="background-image: url('assets/models/ToyTrain.webp');">
+            <button class="slide" onclick="switchSrc(this, 'Dish')"
+                    style="background-image: url('assets/models/Dish.png');">
 
             </button>
-            <button class="slide" onclick="switchSrc(this, 'Canoe')"
-                    style="background-image: url('assets/models/Canoe.webp');">
-            </button>
-            <button class="slide" onclick="switchSrc(this, 'Chair')"
-                    style="background-image: url('assets/models/Chair.webp');">
 
-            </button>
-            <button class="slide" onclick="switchSrc(this, 'Mixer')"
-                    style="background-image: url('assets/models/Mixer.webp');">
-
-            </button>
-            <button class="slide" onclick="switchSrc(this, 'GeoPlanter')"
-                    style="background-image: url('assets/models/GeoPlanter.webp');">
-
-            </button>
-            <button class="slide" onclick="switchSrc(this, 'ToyTrain')"
-                    style="background-image: url('assets/models/ToyTrain.webp');">
-
-            </button>
-            <button class="slide" onclick="switchSrc(this, 'Canoe')"
-                    style="background-image: url('assets/models/Canoe.webp');">
-            </button>
         </div>
     </div>
 </model-viewer>
@@ -72,7 +51,7 @@
         const base = "assets/models/" + name;
         modelViewer.setAttribute("src", base + '.glb')
         modelViewer.setAttribute("ios-src", base + '.usdz')
-        modelViewer.poster = base + '.webp';
+
         const slides = document.querySelectorAll(".slide");
         slides.forEach((element) => {
             element.classList.remove("selected");
@@ -190,28 +169,32 @@
     }
 
     .slider {
-
+        width: 100%;
         text-align: center;
         overflow: hidden;
         position: absolute;
-        bottom: 0;
-        padding: 3%;
+        bottom: 16px;
     }
 
     .slides {
-
         display: flex;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         scroll-behavior: smooth;
         -webkit-overflow-scrolling: touch;
+        left: 10px;
+        width: max-content;
+        max-width: 100%;
+        margin: auto;
+        position: relative;
+        display: flex;
     }
 
     .slide {
         scroll-snap-align: start;
         flex-shrink: 0;
-        width: 10em;
-        height: 10em;
+        width: 100px;
+        height: 100px;
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
